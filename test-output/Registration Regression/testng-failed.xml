@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="10" guice-stage="DEVELOPMENT" name="Failed suite [Registration Regression]" parallel="tests" data-provider-thread-count="2">
+  <parameter name="browserName" value="chrome"/>
+  <test name="Registration Tests_ chrome(failed)" parallel="tests">
+    <parameter name="browserName" value="chrome"/>
+    <classes>
+      <class name="com.generic.tests.Registration.RegistrationBase">
+        <methods>
+          <include name="setUp"/>
+          <include name="initialSetUp"/>
+          <include name="excelSheetReader"/>
+          <include name="registrationRegressionTest"/>
+        </methods>
+      </class> <!-- com.generic.tests.Registration.RegistrationBase -->
+    </classes>
+  </test> <!-- Registration Tests_ chrome(failed) -->
+</suite> <!-- Failed suite [Registration Regression] -->

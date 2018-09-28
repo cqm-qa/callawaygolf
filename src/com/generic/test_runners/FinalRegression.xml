@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite allow-return-values="false" configfailurepolicy="skip" data-provider-thread-count="1" group-by-instances="false" guice-stage="DEVELOPMENT" junit="false" name="Suite" parallel="tests" preserve-order="true" skipfailedinvocationcounts="false" thread-count="1">
+<test name="Regression chrome">
+	<parameter name="browserName" value="chrome"/>
+	<classes>
+		<class name="com.generic.tests.Registration.RegistrationBase"/>
+	</classes>
+</test>
+<test name="Login Tests_ chrome">
+		<parameter name="browserName" value="chrome"/>
+		<classes>
+			<class name="com.generic.tests.login.LoginBase"/>
+		</classes>
+	</test><test name="HomePage chrome">
+		<parameter name="browserName" value="chrome"/>
+		<classes>
+			<class name="com.generic.tests.HomePage.HomePageBase"/>
+		</classes>
+	
+    </test>
+
+</suite>
