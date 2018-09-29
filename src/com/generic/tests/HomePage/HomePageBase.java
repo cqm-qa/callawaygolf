@@ -97,13 +97,13 @@ public class HomePageBase extends SelTestCase {
 			if (proprties.contains(this.verify))
 			{
 				if (proprties.contains(this.header))
-					sassert().assertTrue(HomePage.visualTesting.verifyHeader(baseline),"headerbase lines are not same site header");
+					sassert().assertTrue(HomePage.visualTesting.verifyHeader(baseline),"<font color=#f442cb>headerbase lines are not same site header </font>");
 				if (proprties.contains(this.carouselSlide))
-					sassert().assertTrue(HomePage.visualTesting.verifyCarouselSlide(baseline),"Carousel Slide is not same site Carousel Slide");
+					sassert().assertTrue(HomePage.visualTesting.verifyCarouselSlide(baseline),"<font color=#f442cb>Carousel Slide is not same site Carousel Slide </font>");
 				if (proprties.contains(this.footer))
-					sassert().assertTrue(HomePage.visualTesting.verifyFooter(baseline),"headerbase line is not same site footer");
+					sassert().assertTrue(HomePage.visualTesting.verifyFooter(baseline),"<font color=#f442cb>headerbase line is not same site footer </font>");
 				if (proprties.contains(this.body))
-					sassert().assertTrue(HomePage.visualTesting.verifyBody(baseline),"headerbase line is not same site body");
+					sassert().assertTrue(HomePage.visualTesting.verifyBody(baseline),"<font color=#f442cb>headerbase line is not same site body </font>");
 				
 				HomePage.visualTesting.prepareBaselineforLogs(baseline);
 			}
@@ -139,11 +139,19 @@ public class HomePageBase extends SelTestCase {
 				for (int index = 0; index < 5; index++) {
 					sassert().assertTrue(HomePage.topNav.isNavlinktertiarySecondSubTarget2LinkCorrect(index), "<font color=#f442cb>Accessories Link (" +index +") are not working as expected </font>");	
 				}
-				//TODO
+
+//				Testlogs.get().debug("check Golf Bags Links Corret");
+//				HomePage.topNav.clickSecondSubTarget2SubBtn(0);
+//				for (int index = 0; index < 3; index++) {
+//					sassert().assertTrue(HomePage.topNav.isNavlinktertiarySecondSubTarget2_0Correct(index), "<font color=#f442cb>Golf Bags Link (" +index +") are not working as expected </font>");	
+//				}
+//				
+//				Testlogs.get().debug("check Bag Accessories Links Corret");
+//				HomePage.topNav.clickSecondSubTarget2SubBtn(1);
+//				for (int index = 0; index < 3; index++) {
+//					sassert().assertTrue(HomePage.topNav.isNavlinktertiarySecondSubTarget2_3Correct(index), "<font color=#f442cb>Bag Accessories Link (" +index +") are not working as expected </font>");	
+//				}
 				
-                   // GolfBagsCategoryNavNode 
-				
-				  //BagAccessoriesCategoryNavNode
 			}
 			
 			if (proprties.contains("check top nav links"))//"verify top nav, CheckStatus links"))
@@ -152,8 +160,8 @@ public class HomePageBase extends SelTestCase {
 				Testlogs.get().debug("Verify Order Status Links");
 				HomePage.topNav.clickTopNavLink(1);
 				HomePage.topNav.clickSecondaryNavigation(3);
-				sassert().assertTrue(HomePage.topNav.CheckStatus.checkOrderStatusPage(), "Order status link is not working correctly");
-				sassert().assertTrue(HomePage.getServerError(), "Server Error is displayed for Order status link");
+				sassert().assertTrue(HomePage.topNav.CheckStatus.checkOrderStatusPage(), "<font color=#f442cb>Order status link is not working correctly </font>");
+				sassert().assertTrue(HomePage.getServerError(), "<font color=#f442cb>Server Error is displayed for Order status link </font>");
 				getDriver().get(url);
 			}
 			
@@ -163,8 +171,8 @@ public class HomePageBase extends SelTestCase {
 				Testlogs.get().debug("Verify BillPay Links");
 				HomePage.topNav.clickTopNavLink(2);
 				HomePage.topNav.clickSecondaryNavigation(4);
-				sassert().assertTrue(HomePage.topNav.BillPay.checkBillPayPage(), "Bill Pay link is not working correctly");
-				sassert().assertTrue(HomePage.getServerError(), "Server Error is displayed for BillPay link");
+				sassert().assertTrue(HomePage.topNav.BillPay.checkBillPayPage(), "<font color=#f442cb>Bill Pay link is not working correctly </font>");
+				sassert().assertTrue(HomePage.getServerError(), "<font color=#f442cb>Server Error is displayed for BillPay link </font>");
 				getDriver().get(url);
 			}
 			
@@ -173,7 +181,7 @@ public class HomePageBase extends SelTestCase {
 				
 				Testlogs.get().debug("Verify Compensation Links");
 				HomePage.topNav.clickTopNavLink(3);
-				sassert().assertTrue(false, "Compensation link is not implemented yet");
+				sassert().assertTrue(false, "<font color=#f442cb>Compensation link is not implemented yet");
 			//	Common.returnPreviousPage();
 		//	TODO update this with Compensation requirements.
 				
@@ -190,21 +198,21 @@ public class HomePageBase extends SelTestCase {
 				
 				Testlogs.get().debug("Verify Trade In Returns Links");
 				HomePage.topNav.clickSecondaryNavigation(5);
-				sassert().assertTrue(HomePage.topNav.TradeInReturns.checkTradeInTradeUpBtn(), "Trade In Returns Link is not working correctly");
+				sassert().assertTrue(HomePage.topNav.TradeInReturns.checkTradeInTradeUpBtn(), "<font color=#f442cb>Trade In Returns Link is not working correctly </font>");
 			//	sassert().assertTrue(false, "Trade In Returns Link is not working correctly");
-				sassert().assertTrue(HomePage.getServerError(), "Server Error is displayed for Trade In Trade Up link");
+				sassert().assertTrue(HomePage.getServerError(), "<font color=#f442cb>Server Error is displayed for Trade In Trade Up link </font>");
 				getDriver().get(url);
 				
 				HomePage.topNav.clickTopNavLink(4);
 				HomePage.topNav.clickSecondaryNavigation(6);
-				sassert().assertTrue(HomePage.topNav.TradeInReturns.checkDemoReturnsPage(), "Demo Returns Link is not working correctly");
-				sassert().assertTrue(HomePage.getServerError(), "Server Error is displayed for Demo Returns link");
+				sassert().assertTrue(HomePage.topNav.TradeInReturns.checkDemoReturnsPageURL(), "<font color=#f442cb>Demo Returns Link is not working correctly </font>");
+				sassert().assertTrue(HomePage.topNav.TradeInReturns.checkDemoReturnsPageForm(), "<font color=#f442cb>Demo Returns page is opened cprrectly </font>");
 				getDriver().get(url);
 				
 				HomePage.topNav.clickTopNavLink(4);
 				HomePage.topNav.clickSecondaryNavigation(7);
-				sassert().assertTrue(HomePage.topNav.TradeInReturns.checkFitCartReturnsPage(), "Fit Cart Returns Link is not working correctly");
-				sassert().assertTrue(HomePage.getServerError(), "Server Error is displayed for Fit Cart Returns link");
+				sassert().assertTrue(HomePage.topNav.TradeInReturns.checkFitCartReturnsPage(), "<font color=#f442cb>Fit Cart Returns Link is not working correctly </font>");
+				sassert().assertTrue(HomePage.topNav.TradeInReturns.checkFitCartReturnsPageHeader(), "<font color=#f442cb>Fit Cart Returns page is not opened correctly </font>");
 				getDriver().get(url);
 			}
 
@@ -260,7 +268,69 @@ public class HomePageBase extends SelTestCase {
 				getDriver().get(url);
 				
 				sassert().assertTrue(HomePage.footer.checkBtnHref(HomePageSelectors.InternetAdvertisingAndSalesPolicy, 4), "<font color=#f442cb>Internet Advertising and Sales Policy link is not working as expected </font>");
+				
+				HomePage.footer.clickFooterLink(5);
+				sassert().assertTrue(HomePage.footer.checkPageURL(HomePageSelectors.PriceLists), "<font color=#f442cb>Price Lists link is not working as expected </font>");
+				sassert().assertTrue(HomePage.getServerError(), "Server Error is displayed for Price Lists link");
+				getDriver().get(url);
+				
+				HomePage.footer.clickFooterLink(6);
+				sassert().assertTrue(HomePage.footer.checkPageURL(HomePageSelectors.Catalogs), "<font color=#f442cb>Catalogs link is not working as expected </font>");
+				sassert().assertTrue(HomePage.getServerError(), "Server Error is displayed for Catalogs link");
+				getDriver().get(url);
+				
+				HomePage.footer.clickFooterLink(7);
+				sassert().assertTrue(HomePage.footer.checkPageURL(HomePageSelectors.ProductImages), "<font color=#f442cb>Product Images link is not working as expected </font>");
+				sassert().assertTrue(HomePage.getServerError(), "Server Error is displayed for Product Images link");
+				getDriver().get(url);
+				
+				HomePage.footer.clickFooterLink(8);
+				sassert().assertTrue(HomePage.footer.checkPageURL(HomePageSelectors.LogoSpecsAndPlacement), "<font color=#f442cb>Logo Specs And Placement link is not working as expected </font>");
+				sassert().assertTrue(HomePage.getServerError(), "Server Error is displayed for Logo Specs And Placement link");
+				getDriver().get(url);
+				
+				HomePage.footer.clickFooterLink(9);
+				sassert().assertTrue(HomePage.footer.checkPageURL(HomePageSelectors.CurrentPromotions), "<font color=#f442cb>Current Promotions link is not working as expected </font>");
+				sassert().assertTrue(HomePage.getServerError(), "Server Error is displayed for Current Promotions link");
+				getDriver().get(url);
+				
+				HomePage.footer.clickFooterLink(10);
+				sassert().assertTrue(HomePage.footer.checkPageURL(HomePageSelectors.ProductSetupSheetUPCList), "<font color=#f442cb>Product Setup Sheet / UPC Listlink is not working as expected </font>");
+				sassert().assertTrue(HomePage.getServerError(), "Server Error is displayed for Product Setup Sheet / UPC List link");
+				getDriver().get(url);
+				
+				HomePage.footer.clickFooterLink(11);
+				sassert().assertTrue(HomePage.footer.checkPageURL(HomePageSelectors.callawaygolf), "<font color=#f442cb>callawaygolf link is not working as expected </font>");
+				sassert().assertTrue(HomePage.getServerError(), "Server Error is displayed for callawaygolf link");
+				getDriver().get(url);
+				
+				HomePage.footer.clickFooterLink(12);
+				sassert().assertTrue(HomePage.footer.checkPageURL(HomePageSelectors.callawaygolfpreowned), "<font color=#f442cb>callawaygolfpreowned link is not working as expected </font>");
+				sassert().assertTrue(HomePage.getServerError(), "Server Error is displayed for callawaygolfpreowned link");
+				getDriver().get(url);
+				
+			//	HomePage.footer.clickFooterLink(13);
+				sassert().assertTrue(HomePage.footer.checkBtnHref(HomePageSelectors.pressReleases, 1), "<font color=#f442cb>press Releases link is not working as expected </font>");
 
+//				HomePage.footer.clickFooterLogo(0);
+//				sassert().assertTrue(HomePage.footer.checkPageURL(HomePageSelectors.callawaygolf), "<font color=#f442cb>callawaygolf logo is not working as expected </font>");
+//				sassert().assertTrue(HomePage.getServerError(), "Server Error is displayed for callawaygolf logo");
+//				getDriver().get(url);
+//				
+//				HomePage.footer.clickFooterLogo(1);
+//				sassert().assertTrue(HomePage.footer.checkPageURL(HomePageSelectors.odysseygolf), "<font color=#f442cb>odysseygolf logo is not working as expected </font>");
+//				sassert().assertTrue(HomePage.getServerError(), "Server Error is displayed for odysseygolf logo");
+//				getDriver().get(url);
+//				
+//				HomePage.footer.clickFooterLogo(2);
+//				sassert().assertTrue(HomePage.footer.checkPageURL(HomePageSelectors.ogio), "<font color=#f442cb>ogio logo is not working as expected </font>");
+//				sassert().assertTrue(HomePage.getServerError(), "Server Error is displayed for ogio logo");
+//				getDriver().get(url);
+//				
+//				HomePage.footer.clickFooterLogo(3);
+//				sassert().assertTrue(HomePage.footer.checkPageURL(HomePageSelectors.travismathew), "<font color=#f442cb>travismathew logo is not working as expected </font>");
+//				sassert().assertTrue(HomePage.getServerError(), "Server Error is displayed for travismathew logo");
+//				getDriver().get(url);
 			}
 	
 			sassert().assertAll();

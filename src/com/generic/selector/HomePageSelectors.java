@@ -4,6 +4,7 @@ package com.generic.selector;
 public class HomePageSelectors
 {
 	public static final String header = "header-container";
+	public static final String MyAccountPageheader = "css,.account-section>div>div";
 	public static final String myAccountIcon = "css,.nav__right>.nav__links.nav__links--shop_info>.nav__right.hidden-sm.hidden-xs>div>.yCmsComponent>.nav-order-tools.js-nav-order-tools";
 	public static final String miniCartIcon = "css,.nav__right>.nav__links.nav__links--shop_info>.nav__right.hidden-sm.hidden-xs>div>.yCmsComponent>.nav-cart";
 	public static final String storeFinder = "css,.nav__right>.nav__links.nav__links--shop_info>.nav__left>.nav-location.hidden-xs.hidden-sm";
@@ -39,7 +40,7 @@ public class HomePageSelectors
 	public static final String navlinktertiarySecondSubTarget1 = "css,#second_sub_target1>span>.nav__link--tertiary>a";
 	public static final String navlinktertiarySecondSubTarget2 = "css,#second_sub_target2>span>.nav__link--tertiary>a";
 	//////////////////<TODO
-	public static final String navlinktertiarySecondSubTarget2SubBtn = "css,#second_sub_target2>span>.nav__link--tertiary>span>img";
+	public static final String navlinktertiarySecondSubTarget2SubBtn = "css,#second_sub_target2>span>.nav__link--tertiary>span";
 	public static final String navlinktertiarySecondSubTarget2SubBtnName = "css,#second_sub_target2>span>.nav__link--tertiary>span";
 	public static final String navlinktertiarySecondSubTarget2_0 = "css,#third_sub_target2_0>span>.nav__link--tertiary>a";
 	public static final String navlinktertiarySecondSubTarget2_3 = "css,#third_sub_target2_3>span>.nav__link--tertiary>a";
@@ -78,17 +79,29 @@ public class HomePageSelectors
 	public static final String footerMainContainers = "css,.footer__nav--container.col-xs-12.col-sm-3";
 	public static final String footerMainContainersTitle = "css,.footer__nav--container.col-xs-12.col-sm-3>.title";
 	public static final String footerLinks = "css,.footer__nav--container.col-xs-12.col-sm-3>.footer__nav--links>li>a";
-	public static final String footerLogos ="css,.simple-banner.banner__component--responsive>a>.js-responsive-image";
+	public static final String footerLogos ="css,.simple-banner.banner__component--responsive>a";
+	
+	
 	public static final String contactUs = "contactUs";
 	public static final String NPIP_MAP_Policies = "https://www.callawayconnect.com/SecureContent/ProductCenter/2018_Callaway_NPIPMAP.pdf";
 	public static final String PrivacyPolicy = "PrivacyPolicy";
 	public static final String Legal = "Legal";
 	public static final String InternetAdvertisingAndSalesPolicy = "https://www.callawayconnect.com/login.aspx?ReturnUrl=%2fSecureContent%2fProductCenter%2f2018_Callaway_Internet_Advertising_SalesPolicy.pdf";
-	public static final String PriceLists = null;
-	public static final String Catalogs = null;
-	public static final String ProductImages = null;
-	public static final String LogoSpecsAndPlacement = null;
-	public static final String CurrentPromotions = null;
-	public static final String ProductSetupSheetUPCList = null;
+	public static final String PriceLists = "PriceLists";
+	public static final String Catalogs = "Catalogs";
+	public static final String ProductImages = "thebunker.callawaygolf.com/";
+	public static final String LogoSpecsAndPlacement = "Placement";
+	public static final String CurrentPromotions = "promotions";
+	public static final String ProductSetupSheetUPCList = "Setup";
+	public static final String demoReturnsForm = "demoReturnsForm1";
+	public static final String callawaygolf = "http://cmp.callawaygolf.com/";
+	public static final String callawaygolfpreowned = "https://www.callawaygolfpreowned.com/";
+	public static final String pressReleases = "http://ir.callawaygolf.com/";
+	public static final String odysseygolf = "http://blog.odysseygolf.com/";
+	public static final String ogio = "ogio";
+	public static final String travismathew = "travismathew";
+					
+
+
 	
 }

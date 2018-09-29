@@ -20,8 +20,8 @@ public class PersonalDetails extends SelTestCase {
 		List<String> subStrArr = new ArrayList<String>();
 	    List<String> valuesArr = new ArrayList<String>();
 		logs.debug(MessageFormat.format(LoggingMsg.GET_ELEMENT_BY_LOCATOR,PersonalDetailsSelectors.title));
-		subStrArr.add(PersonalDetailsSelectors.title);
-		valuesArr.add("");
+		subStrArr.add(PersonalDetailsSelectors.selectedTitle);
+		valuesArr.add("noClick");
 		String titleVal = "";
 		SelectorUtil.initializeSelectorsAndDoActions(subStrArr, valuesArr);
 		titleVal = SelectorUtil.textValue.get();

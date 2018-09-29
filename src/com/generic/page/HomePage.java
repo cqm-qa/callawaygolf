@@ -13,6 +13,7 @@ import javax.imageio.ImageIO;
 
 import org.apache.commons.io.FileUtils;
 import com.generic.selector.HomePageSelectors;
+import com.generic.selector.SignInSelectors;
 import com.generic.setup.EnvironmentFiles;
 import com.generic.setup.ExceptionMsg;
 import com.generic.setup.LoggingMsg;
@@ -393,7 +394,7 @@ public class HomePage extends SelTestCase {
 					logs.debug(MessageFormat.format(LoggingMsg.CURRENT_URL, SelTestCase.getDriver().getCurrentUrl()));
 					String url = SelTestCase.getDriver().getCurrentUrl();
 					getCurrentFunctionName(false);
-					return url.contains("tradeUp");
+					return url.contains("returns/titu/new-trade");
 				} catch (NoSuchElementException e) {
 					logs.debug(MessageFormat.format(ExceptionMsg.PageFunctionFailed, new Object() {
 					}.getClass().getEnclosingMethod().getName()));
@@ -401,13 +402,28 @@ public class HomePage extends SelTestCase {
 				}
 			}
 			
-			public static boolean checkDemoReturnsPage() throws Exception {
+			public static boolean checkDemoReturnsPageForm() throws Exception {
+				try {
+						getCurrentFunctionName(true);
+						String Selector = HomePageSelectors.demoReturnsForm;
+						List<String> subStrArr = new ArrayList<String>();
+						subStrArr.add(Selector);
+						getCurrentFunctionName(false);
+						return SelectorUtil.isDisplayed(subStrArr);
+					} catch (NoSuchElementException e) {
+						logs.debug(MessageFormat.format(ExceptionMsg.PageFunctionFailed, new Object() {
+						}.getClass().getEnclosingMethod().getName()));
+						throw e;
+					}
+				}
+			
+			public static boolean checkDemoReturnsPageURL() throws Exception {
 				try {
 					getCurrentFunctionName(true);
 					logs.debug(MessageFormat.format(LoggingMsg.CURRENT_URL, SelTestCase.getDriver().getCurrentUrl()));
 					String url = SelTestCase.getDriver().getCurrentUrl();
 					getCurrentFunctionName(false);
-					return url.contains("demoReturns");
+					return url.contains("/returns/demoReturns");
 				} catch (NoSuchElementException e) {
 					logs.debug(MessageFormat.format(ExceptionMsg.PageFunctionFailed, new Object() {
 					}.getClass().getEnclosingMethod().getName()));
@@ -420,12 +436,31 @@ public class HomePage extends SelTestCase {
 					logs.debug(MessageFormat.format(LoggingMsg.CURRENT_URL, SelTestCase.getDriver().getCurrentUrl()));
 					String url = SelTestCase.getDriver().getCurrentUrl();
 					getCurrentFunctionName(false);
-					return url.contains("fitCartReturns");
+					return url.contains("/returns/fitCartReturns");
 				} catch (NoSuchElementException e) {
 					logs.debug(MessageFormat.format(ExceptionMsg.PageFunctionFailed, new Object() {
 					}.getClass().getEnclosingMethod().getName()));
 					throw e;
 				}
+			}
+			
+			public static boolean checkFitCartReturnsPageHeader() throws Exception {
+				try {
+					getCurrentFunctionName(true);
+					List<String> subStrArr = new ArrayList<String>();
+					List<String> valuesArr = new ArrayList<String>();
+					subStrArr.add(HomePageSelectors.MyAccountPageheader);
+					valuesArr.add("");
+					SelectorUtil.initializeSelectorsAndDoActions(subStrArr, valuesArr);
+					logs.debug(MessageFormat.format(LoggingMsg.SEL_TEXT, SelectorUtil.textValue.get()));
+					getCurrentFunctionName(false);
+					return SelectorUtil.textValue.get().toLowerCase().contains("fitting returns");
+				} catch (NoSuchElementException e) {
+					logs.debug(MessageFormat.format(ExceptionMsg.PageFunctionFailed, new Object() {
+					}.getClass().getEnclosingMethod().getName()));
+					throw e;
+				}
+
 			}
 			
 		}
@@ -494,7 +529,7 @@ public static class  Resources {
 			valuesArr.add("");
 			String href = SelectorUtil.getAttr(subStrArr, "href", 0);
 			getCurrentFunctionName(false);
-			return href.contains("www.callawayconnect.com/SecureContent/ProductCenter/2018_Callaway_Wholesale_PriceList_US.pdf");
+			return href.contains("ProductCenter/2018_Callaway_Wholesale_PriceList_US.pdf");
 		} catch (NoSuchElementException e) {
 			logs.debug(MessageFormat.format(ExceptionMsg.PageFunctionFailed, new Object() {
 			}.getClass().getEnclosingMethod().getName()));
@@ -512,7 +547,7 @@ public static class  Resources {
 			valuesArr.add("");
 			String href = SelectorUtil.getAttr(subStrArr, "href", 1);
 			getCurrentFunctionName(false);
-			return href.contains("www.callawayconnect.com/SecureContent/ProductCenter/2018_Callaway_NPIPMAP.pdf");
+			return href.contains("ProductCenter/2018_Callaway_NPIPMAP.pdf");
 		} catch (NoSuchElementException e) {
 			logs.debug(MessageFormat.format(ExceptionMsg.PageFunctionFailed, new Object() {
 			}.getClass().getEnclosingMethod().getName()));
@@ -530,7 +565,7 @@ public static class  Resources {
 			valuesArr.add("");
 			String href = SelectorUtil.getAttr(subStrArr, "href", 2);
 			getCurrentFunctionName(false);
-			return href.contains("www.callawayconnect.com/SecureContent/ProductCenter/2018_Callaway_Internet_Advertising_SalesPolicy.pdf");
+			return href.contains("ProductCenter/2018_Callaway_Internet_Advertising_SalesPolicy.pdf");
 		} catch (NoSuchElementException e) {
 			logs.debug(MessageFormat.format(ExceptionMsg.PageFunctionFailed, new Object() {
 			}.getClass().getEnclosingMethod().getName()));
@@ -548,7 +583,7 @@ public static class  Resources {
 			valuesArr.add("");
 			String href = SelectorUtil.getAttr(subStrArr, "href", 3);
 			getCurrentFunctionName(false);
-			return href.contains("www.callawayconnect.com/SecureContent/ProductCenter/2018_OffPremises_SalesPolicy_US.pdf");
+			return href.contains("ProductCenter/2018_OffPremises_SalesPolicy_US.pdf");
 		} catch (NoSuchElementException e) {
 			logs.debug(MessageFormat.format(ExceptionMsg.PageFunctionFailed, new Object() {
 			}.getClass().getEnclosingMethod().getName()));
@@ -566,7 +601,7 @@ public static class  Resources {
 			valuesArr.add("");
 			String href = SelectorUtil.getAttr(subStrArr, "href", 5);
 			getCurrentFunctionName(false);
-			return href.contains("cgmediacontentus.blob.core.windows.net/connect/ProductCenter/ConstrainedComponents.xlsx");
+			return href.contains("ProductCenter/ConstrainedComponents.xlsx");
 		} catch (NoSuchElementException e) {
 			logs.debug(MessageFormat.format(ExceptionMsg.PageFunctionFailed, new Object() {
 			}.getClass().getEnclosingMethod().getName()));
@@ -665,11 +700,6 @@ public static class  Resources {
 
 	}
 	
-	
-	
-	
-	
-	
 }
 
 		public static void clickTopNavLink(int linkID) throws Exception {
@@ -697,6 +727,24 @@ public static class  Resources {
 				subStrArr.add(HomePageSelectors.secondaryNavigation);
 				valuesArr.add("");
 				SelectorUtil.clickButton(subStrArr, linkID);
+				getCurrentFunctionName(false);
+			} catch (NoSuchElementException e) {
+				logs.debug(MessageFormat.format(ExceptionMsg.PageFunctionFailed, new Object() {
+				}.getClass().getEnclosingMethod().getName()));
+				throw e;
+			}
+
+		}
+		
+		public static void clickSecondSubTarget2SubBtn(int index) throws Exception {
+			try {
+				getCurrentFunctionName(true);
+				List<String> subStrArr = new ArrayList<String>();
+				List<String> valuesArr = new ArrayList<String>();
+				subStrArr.add(HomePageSelectors.navlinktertiarySecondSubTarget2SubBtn);
+				valuesArr.add("index,"+index);
+				//SelectorUtil.clickButton(subStrArr, index);
+				SelectorUtil.initializeSelectorsAndDoActions(subStrArr, valuesArr);
 				getCurrentFunctionName(false);
 			} catch (NoSuchElementException e) {
 				logs.debug(MessageFormat.format(ExceptionMsg.PageFunctionFailed, new Object() {
@@ -795,6 +843,76 @@ public static class  Resources {
 			}
 		}
 
+		public static String getNavlinktertiarySecondSubTarget2_0(int index) throws Exception {
+			try {
+				getCurrentFunctionName(true);
+				List<String> subStrArr = new ArrayList<String>();
+				List<String> valuesArr = new ArrayList<String>();
+				subStrArr.add(HomePageSelectors.navlinktertiarySecondSubTarget2_0);
+				valuesArr.add("");
+				String href = SelectorUtil.getAttr(subStrArr, "href", index);
+				getCurrentFunctionName(false);
+				return href;
+			} catch (NoSuchElementException e) {
+				logs.debug(MessageFormat.format(ExceptionMsg.PageFunctionFailed, new Object() {
+				}.getClass().getEnclosingMethod().getName()));
+				throw e;
+			}
+
+		}
+
+		public static String getNavlinktertiarySecondSubTarget2_0Name(int index) throws Exception {
+			try {
+				getCurrentFunctionName(true);
+				List<String> subStrArr = new ArrayList<String>();
+				List<String> valuesArr = new ArrayList<String>();
+				subStrArr.add(HomePageSelectors.navlinktertiarySecondSubTarget2_0);
+				valuesArr.add("");
+				String Name = SelectorUtil.getAttr(subStrArr, "title", index).split(" ")[0].split("/")[0].replace("-", "");
+				getCurrentFunctionName(false);
+				return Name;
+			} catch (NoSuchElementException e) {
+				logs.debug(MessageFormat.format(ExceptionMsg.PageFunctionFailed, new Object() {
+				}.getClass().getEnclosingMethod().getName()));
+				throw e;
+			}
+		}
+		
+		public static String getNavlinktertiarySecondSubTarget2_3(int index) throws Exception {
+			try {
+				getCurrentFunctionName(true);
+				List<String> subStrArr = new ArrayList<String>();
+				List<String> valuesArr = new ArrayList<String>();
+				subStrArr.add(HomePageSelectors.navlinktertiarySecondSubTarget2_3);
+				valuesArr.add("");
+				String href = SelectorUtil.getAttr(subStrArr, "href", index);
+				getCurrentFunctionName(false);
+				return href;
+			} catch (NoSuchElementException e) {
+				logs.debug(MessageFormat.format(ExceptionMsg.PageFunctionFailed, new Object() {
+				}.getClass().getEnclosingMethod().getName()));
+				throw e;
+			}
+
+		}
+
+		public static String getNavlinktertiarySecondSubTarget2_3Name(int index) throws Exception {
+			try {
+				getCurrentFunctionName(true);
+				List<String> subStrArr = new ArrayList<String>();
+				List<String> valuesArr = new ArrayList<String>();
+				subStrArr.add(HomePageSelectors.navlinktertiarySecondSubTarget2_3);
+				valuesArr.add("");
+				String Name = SelectorUtil.getAttr(subStrArr, "title", index).split(" ")[0].split("/")[0].replace("-", "");
+				getCurrentFunctionName(false);
+				return Name;
+			} catch (NoSuchElementException e) {
+				logs.debug(MessageFormat.format(ExceptionMsg.PageFunctionFailed, new Object() {
+				}.getClass().getEnclosingMethod().getName()));
+				throw e;
+			}
+		}
+		
 		public static String getLinkisNavlinktertiarySecondSubTarget2Link(int index) throws Exception {
 			try {
 				getCurrentFunctionName(true);
@@ -906,6 +1024,19 @@ public static class  Resources {
 			return (getLinkNavThirdNavigation(index).toLowerCase()
 					.contains(getLinkNavThirdNavigationName(index).toLowerCase()) ? true : false);
 		}
+		
+		public static boolean isNavlinktertiarySecondSubTarget2_0Correct(int index) throws Exception {
+			logs.debug("isNavlinktertiarySecondSubTarget2_0Correct?");
+			return (getNavlinktertiarySecondSubTarget2_0(index).toLowerCase()
+					.contains(getNavlinktertiarySecondSubTarget2_0Name(index).toLowerCase()) ? true : false);
+		}
+		
+		public static boolean isNavlinktertiarySecondSubTarget2_3Correct(int index) throws Exception {
+			logs.debug("isNavlinktertiarySecondSubTarget2_3Correct?");
+			return (getNavlinktertiarySecondSubTarget2_3(index).toLowerCase()
+					.contains(getNavlinktertiarySecondSubTarget2_3Name(index).toLowerCase()) ? true : false);
+		}
+		
 	}
 
 	public static class footer {
@@ -926,14 +1057,29 @@ public static class  Resources {
 			}
 
 		}
-		
+		public static void clickFooterLogo(int index) throws Exception {
+			try {
+				getCurrentFunctionName(true);
+				List<String> subStrArr = new ArrayList<String>();
+				List<String> valuesArr = new ArrayList<String>();
+				subStrArr.add(HomePageSelectors.footerLogos);
+				valuesArr.add("index,"+index);
+				SelectorUtil.initializeSelectorsAndDoActions(subStrArr, valuesArr);
+				getCurrentFunctionName(false);
+			} catch (NoSuchElementException e) {
+				logs.debug(MessageFormat.format(ExceptionMsg.PageFunctionFailed, new Object() {
+				}.getClass().getEnclosingMethod().getName()));
+				throw e;
+			}
+
+		}
 		public static boolean checkPageURL(String pageUrl) throws Exception {
 			try {
 				getCurrentFunctionName(true);
 				logs.debug(MessageFormat.format(LoggingMsg.CURRENT_URL, SelTestCase.getDriver().getCurrentUrl()));
 				String url = SelTestCase.getDriver().getCurrentUrl();
 				getCurrentFunctionName(false);
-				return url.contains(pageUrl);
+				return url.toLowerCase().contains(pageUrl.toLowerCase());
 			} catch (NoSuchElementException e) {
 				logs.debug(MessageFormat.format(ExceptionMsg.PageFunctionFailed, new Object() {
 				}.getClass().getEnclosingMethod().getName()));
@@ -960,6 +1106,23 @@ public static class  Resources {
 
 		}
 		
+		public static boolean checkFooterLogo(String href, int index) throws Exception {
+			try {
+				getCurrentFunctionName(true);
+				List<String> subStrArr = new ArrayList<String>();
+				List<String> valuesArr = new ArrayList<String>();
+				subStrArr.add(HomePageSelectors.footerLogo);
+				valuesArr.add("");
+				String ActualHref = SelectorUtil.getAttr(subStrArr, "href", index);
+				getCurrentFunctionName(false);
+				return ActualHref.contains(href);
+			} catch (NoSuchElementException e) {
+				logs.debug(MessageFormat.format(ExceptionMsg.PageFunctionFailed, new Object() {
+				}.getClass().getEnclosingMethod().getName()));
+				throw e;
+			}
+
+		}
 		public static class HELP {
 			public static String getTitle() throws Exception {
 				getCurrentFunctionName(true);

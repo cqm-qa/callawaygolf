@@ -152,7 +152,7 @@ public class LoginBase extends SelTestCase {
 				if(!getBrowserName().contains("mobile"))
 				{
 					SignIn.clickSignUpBtn();
-					sassert().assertTrue(Registration.checkRegisterSection());
+					sassert().assertTrue(Registration.checkRegisterSection(), "registeration page is not opened correctly");
 				}
 			}
 			if (proprties.equals("credit application valid email")) {

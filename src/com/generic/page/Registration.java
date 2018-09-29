@@ -28,8 +28,8 @@ public class Registration extends SelTestCase {
 		public static final String extension = "extension";
 		public static final String email = "mail";
 		public static final String password = "password";
-		public static final String lastName = null;
-		public static final String firstName = null;
+		public static final String lastName = "lastName";
+		public static final String firstName = "firstName";
 	}
 
 	// donn-CQM

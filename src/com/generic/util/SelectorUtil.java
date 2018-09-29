@@ -611,6 +611,7 @@ public class SelectorUtil extends SelTestCase {
 					   }
 					   else if (action.equals("selectByText"))
 					   {
+
 						   logs.debug(MessageFormat.format(LoggingMsg.SELECTING_ELEMENT_VALUE, "value", byAction.toString())); 
 						   Select select = new Select(field);
 						   
@@ -622,6 +623,16 @@ public class SelectorUtil extends SelTestCase {
 //							}
 						String textVal = "";
 						try {
+							   if (value.contains("getCurrentValue")) {
+									  logs.debug(MessageFormat.format(LoggingMsg.GETTING_SEL,"txt", byAction.toString()));
+									  JavascriptExecutor jse = (JavascriptExecutor)getDriver();
+									   jse.executeScript("arguments[0].scrollIntoView(false)", field);
+									  // I used the value attr instead of getText() as the input has the text as a value
+									   textValue.set(field.getAttribute("value"));
+									   logs.debug("the text value is: " + SelectorUtil.textValue.get());
+								  }
+							   else {
+								   
 							if (!value.isEmpty() && value.contains("index")) {
 								logs.debug(MessageFormat.format(LoggingMsg.SELECTED_INDEX, Integer.parseInt(value.split(",")[1])));
 								select.selectByValue("CA");
@@ -649,6 +660,7 @@ public class SelectorUtil extends SelTestCase {
 							} else {
 								textVal = select.getFirstSelectedOption().getText();
 							}
+							   }
 						}
 						   catch(Exception e)
 						   {
@@ -787,7 +799,11 @@ public class SelectorUtil extends SelTestCase {
 
 		List<WebElement> items = getDriver().findElements((By) webelementsInfo.get(subStrArr.get(0)).get("by"));
 		items.get(index).click();
-		getCurrentFunctionName(false);
+		JavascriptExecutor js = (JavascriptExecutor) getDriver();
+        ((JavascriptExecutor) getDriver()).executeScript("arguments[0].scrollIntoView(true);", items.get(index));
+        Thread.sleep(100);
+        items.get(index).click();
+    	getCurrentFunctionName(false);
 	}
 	
 	@SuppressWarnings("rawtypes")

@@ -90,8 +90,8 @@ public class PersonalDetailsValidation extends SelTestCase {
 						profileFirstName, ((String) userDetails.get(Registration.keys.firstName)).toLowerCase().trim());
 				String incorrectlastNameErrorMsg = MessageFormat.format(LoggingMsg.ACTUAL_EXPECTED_ERROR,
 						profileLastname,   ((String) userDetails.get(Registration.keys.lastName)).toLowerCase().trim());
-				
-				sassert().assertTrue(profileTitle.contains(((String) userDetails.get(Registration.keys.title)).toLowerCase()), incorrectTitleErrorMsg);
+
+//				sassert().assertTrue(profileTitle.contains(((String) userDetails.get(Registration.keys.title)).toLowerCase()), incorrectTitleErrorMsg);
 				sassert().assertTrue(profileFirstName.contains(((String) userDetails.get(Registration.keys.firstName)).toLowerCase()),incorrectFirstNameErrorMsg);
 				sassert().assertTrue(profileLastname.contains(((String) userDetails.get(Registration.keys.lastName)).toLowerCase()),incorrectlastNameErrorMsg);
 			} else {
