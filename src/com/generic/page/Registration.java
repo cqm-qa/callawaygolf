@@ -262,11 +262,11 @@ public class Registration extends SelTestCase {
 			getCurrentFunctionName(true);
 
 			if (!"".equals(country))
-				typeCountry(49);
+				typeCountry(254);
 			    Thread.sleep(500);
 			
 			if (!"".equals(title))
-				typeTitle(2);
+				typeTitle(4);
 		        Thread.sleep(500);
 		        
 			if (!"".equals(userName))
