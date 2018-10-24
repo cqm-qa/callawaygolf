@@ -33,7 +33,7 @@ public class Registration extends SelTestCase {
 	}
 
 	// donn-CQM
-	public static void typeCountry2(String country) throws Exception {
+	public static void typeCountry(String country) throws Exception {
 		try {
 				getCurrentFunctionName(true);
 				List<String> subStrArr = new ArrayList<String>();
@@ -49,7 +49,7 @@ public class Registration extends SelTestCase {
 			}
 
 	}
-	public static void typeCountry(int index) throws Exception {
+	public static void typeCountry2(int index) throws Exception {
 		try {
 				getCurrentFunctionName(true);
 				List<String> subStrArr = new ArrayList<String>();
@@ -66,7 +66,7 @@ public class Registration extends SelTestCase {
 
 	// done-CQM
 	
-	public static void typeTitle(int index) throws Exception {
+	public static void typeTitle2(int index) throws Exception {
 		try {
 			getCurrentFunctionName(true);
 			List<String> subStrArr = new ArrayList<String>();
@@ -81,7 +81,7 @@ public class Registration extends SelTestCase {
 		}
 	}
 	
-	public static void typeTitle2(String title) throws Exception {
+	public static void typeTitle(String title) throws Exception {
 		try {
 			getCurrentFunctionName(true);
 			List<String> subStrArr = new ArrayList<String>();
@@ -262,11 +262,11 @@ public class Registration extends SelTestCase {
 			getCurrentFunctionName(true);
 
 			if (!"".equals(country))
-				typeCountry(254);
+				typeCountry(country);
 			    Thread.sleep(500);
 			
 			if (!"".equals(title))
-				typeTitle(4);
+				typeTitle(title);
 		        Thread.sleep(500);
 		        
 			if (!"".equals(userName))
