@@ -367,28 +367,30 @@ public class Common extends SelTestCase {
 		int country = 1;
 		int title = 2;
 		int userName = 3;
-		int companyName = 4;
+		int accountName = 4;
 		int addressLine = 5;
 		int addressLine2 = 6;
 		int city = 7;
-		int postal = 8;
-		int position = 9;
-		int phone = 10;
-		int extension=11;
+		int region = 8;
+		int postal = 9;
+		int accountNumber = 10;
+		int phone = 11;
+		int enteredBy=12;
 
 		for (int row = 1; row < data.length; row++) {
 			LinkedHashMap<String, Object> address = new LinkedHashMap<>();
 			address.put((String) data[header][country], data[row][country]);
 			address.put((String) data[header][title], data[row][title]);
 			address.put((String) data[header][userName], data[row][userName]);
-			address.put((String) data[header][companyName], data[row][companyName]);
+			address.put((String) data[header][accountName], data[row][accountName]);
 			address.put((String) data[header][addressLine], data[row][addressLine]);
 			address.put((String) data[header][addressLine2], data[row][addressLine2]);
 			address.put((String) data[header][city], data[row][city]);
+			address.put((String) data[header][region], data[row][region]);
 			address.put((String) data[header][postal], data[row][postal]);
-			address.put((String) data[header][position], data[row][position]);
+			address.put((String) data[header][accountNumber], data[row][accountNumber]);
 			address.put((String) data[header][phone], data[row][phone]);
-			address.put((String) data[header][extension], data[row][extension]);
+			address.put((String) data[header][enteredBy], data[row][enteredBy]);
 
 			addresses.put((String) data[row][addresscode], address);
 		}

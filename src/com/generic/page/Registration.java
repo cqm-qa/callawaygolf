@@ -18,15 +18,16 @@ public class Registration extends SelTestCase {
 		public static final String country = "country";
 		public static final String title = "title";
 		public static final String userName = "userName";
-		public static final String companyName = "companyName";
+		public static final String accountName = "accountName";
 		public static final String adddressLine = "adddressLine";
 		public static final String adddressLine2 = "adddressLine2";
 		public static final String city = "city";
+		public static final String region = "region";
 		public static final String postal = "postal";
-		public static final String position = "position";
+		public static final String accountNumber = "accountNumber";
 		public static final String phone = "phone";
-		public static final String extension = "extension";
 		public static final String email = "mail";
+		public static final String enteredBy = "enteredBy";
 		public static final String password = "password";
 		public static final String lastName = "lastName";
 		public static final String firstName = "firstName";
@@ -40,6 +41,22 @@ public class Registration extends SelTestCase {
 				List<String> valuesArr = new ArrayList<String>();
 				subStrArr.add(RegistrationSelectors.country);
 				valuesArr.add(country);
+				SelectorUtil.initializeSelectorsAndDoActions(subStrArr, valuesArr);
+				getCurrentFunctionName(false);
+			} catch (NoSuchElementException e) {
+				logs.debug(MessageFormat.format(ExceptionMsg.PageFunctionFailed, new Object() {
+				}.getClass().getEnclosingMethod().getName()));
+				throw e;
+			}
+
+	}
+	public static void typeRegion(String region) throws Exception {
+		try {
+				getCurrentFunctionName(true);
+				List<String> subStrArr = new ArrayList<String>();
+				List<String> valuesArr = new ArrayList<String>();
+				subStrArr.add(RegistrationSelectors.region);
+				valuesArr.add(region);
 				SelectorUtil.initializeSelectorsAndDoActions(subStrArr, valuesArr);
 				getCurrentFunctionName(false);
 			} catch (NoSuchElementException e) {
@@ -170,6 +187,23 @@ public class Registration extends SelTestCase {
 
 	}
 	
+	public static void typeAccountNumber(String accountNumber) throws Exception {
+		try {
+			getCurrentFunctionName(true);
+			List<String> subStrArr = new ArrayList<String>();
+			List<String> valuesArr = new ArrayList<String>();
+			logs.debug(MessageFormat.format(LoggingMsg.TYPING_ELEMENT_VALUE, "accountNumber ", accountNumber));
+			subStrArr.add(RegistrationSelectors.accountNumber);
+			valuesArr.add(accountNumber);
+			SelectorUtil.initializeSelectorsAndDoActions(subStrArr, valuesArr);
+			getCurrentFunctionName(false);
+		} catch (NoSuchElementException e) {
+			logs.debug(MessageFormat.format(ExceptionMsg.PageFunctionFailed, new Object() {
+			}.getClass().getEnclosingMethod().getName()));
+			throw e;
+		}
+
+	}
 	public static void selectUserType(int index) throws Exception {
 		try {
 			getCurrentFunctionName(true);
@@ -255,7 +289,62 @@ public class Registration extends SelTestCase {
 }
 
 	@SuppressWarnings("unlikely-arg-type")
-	public static void fillAndClickRegister(String country, String title, String userName, String compayName, String adddressLine,
+	public static void fillAndClickRegister(String userName, String accountName, String adddressLine,
+			 String adddressLine2, String city,String region, String postal, String accountNumber, String phone, String email, String enteredBy, String message, int userType) throws Exception {
+		try {
+			getCurrentFunctionName(true);
+		        
+			if (!"".equals(userName))
+				typeUserName(userName);
+
+			if (!"".equals(accountName))
+				typeCompanyName(accountName);
+			
+			if (!"".equals(adddressLine))
+				typeAddressLine1(adddressLine);
+			
+			if (!"".equals(adddressLine2))
+				typeAddressLine2(adddressLine2);
+			
+			if (!"".equals(city))
+				typeCity(city);
+			
+			if (!"".equals(region))
+				typeCountry(region);
+			    Thread.sleep(500);
+			
+			if (!"".equals(postal))
+				typeZipcode(postal);
+			
+			if (!"".equals(accountNumber))
+				typeAccountNumber(accountNumber);
+			
+			if (!"".equals(phone))
+				typePhone(phone);
+			
+			if (!"".equals(email))
+				typeEmailAddress(email);
+
+			if (!"".equals(enteredBy))
+				typeEnteredBy(enteredBy);
+		
+			if (!"".equals(message))
+				typeMessage(message);
+			
+			if (!"".equals(userType))
+				selectUserType(userType);
+			
+			clickRegisterButton();
+			getCurrentFunctionName(false);
+		} catch (NoSuchElementException e) {
+			logs.debug(MessageFormat.format(ExceptionMsg.PageFunctionFailed, new Object() {
+			}.getClass().getEnclosingMethod().getName()));
+			throw e;
+		}
+
+	}
+	@SuppressWarnings("unlikely-arg-type")
+	public static void fillAndClickRegister_back(String country, String title, String userName, String compayName, String adddressLine,
 			 String adddressLine2, String city, String postal, String position, String phone, 
 			 String extension, String email, String confEmail, String message, int userType) throws Exception {
 		try {
@@ -334,7 +423,6 @@ public class Registration extends SelTestCase {
 		}
 
 	}
-
 	
 	private static void acceptTerms() throws Exception {
 		try {
@@ -420,6 +508,23 @@ public class Registration extends SelTestCase {
 		}
 
 	}
+	private static void typeEnteredBy(String enteredBy) throws Exception {
+		try {
+			getCurrentFunctionName(true);
+			List<String> subStrArr = new ArrayList<String>();
+			List<String> valuesArr = new ArrayList<String>();
+			subStrArr.add(RegistrationSelectors.enteredBy);
+			valuesArr.add(enteredBy);
+			SelectorUtil.initializeSelectorsAndDoActions(subStrArr, valuesArr);
+			getCurrentFunctionName(false);
+		} catch (NoSuchElementException e) {
+			logs.debug(MessageFormat.format(ExceptionMsg.PageFunctionFailed, new Object() {
+			}.getClass().getEnclosingMethod().getName()));
+			throw e;
+		}
+
+	}
+
 	private static void typeAddressLine1(String address) throws Exception {
 		try {
 			getCurrentFunctionName(true);

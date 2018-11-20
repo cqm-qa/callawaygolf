@@ -77,12 +77,12 @@ public class AccountsSetup extends SelTestCase {
 				//register new user and validate the results
 			Testlogs.get().debug("country be used is: "+ addressDetails.get(Registration.keys.country));
 			Testlogs.get().debug("title be used is: "+ addressDetails.get(Registration.keys.title));
-				Registration.fillAndClickRegister(addressDetails.get(Registration.keys.country), addressDetails.get(Registration.keys.title),
-						addressDetails.get(Registration.keys.userName), addressDetails.get(Registration.keys.companyName),
-						addressDetails.get(Registration.keys.adddressLine),addressDetails.get(Registration.keys.adddressLine2),
-						addressDetails.get(Registration.keys.city),addressDetails.get(Registration.keys.postal),
-						addressDetails.get(Registration.keys.position),addressDetails.get(Registration.keys.phone),
-						addressDetails.get(Registration.keys.extension), Pemail, Pemail, message,Integer.parseInt(userType));
+			Registration.fillAndClickRegister(
+				    addressDetails.get(Registration.keys.userName), addressDetails.get(Registration.keys.accountName),
+					addressDetails.get(Registration.keys.adddressLine),addressDetails.get(Registration.keys.adddressLine2),
+					addressDetails.get(Registration.keys.city),addressDetails.get(Registration.keys.region),
+					addressDetails.get(Registration.keys.postal),addressDetails.get(Registration.keys.accountNumber)
+					,addressDetails.get(Registration.keys.phone),email, addressDetails.get(Registration.keys.enteredBy), message, 1);
 				
 				String registrationSuccessMsg = Registration.getRegistrationSuccessMessage();
 				sassert().assertTrue(registrationSuccessMsg.toLowerCase().contains(thankUMsg), 

@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="HomePageRegression" parallel="tests" thread-count="10" data-provider-thread-count="3">
+<suite name="HomePageRegression" parallel="tests" thread-count="10" data-provider-thread-count="1">
 	<test name="MyAccount Chrome">
 		<parameter name="browserName" value="chrome"></parameter>
 		<classes>
-			<class name="com.generic.tests.account.PersonalDetailsValidation" />
-			<class name="com.generic.tests.account.emailAddressValidation" />
 			<class name="com.generic.tests.account.ChangePasswordValidation" />
 		</classes>
 	</test><!-- Test -->

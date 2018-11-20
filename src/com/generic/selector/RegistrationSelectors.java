@@ -20,6 +20,7 @@ public class RegistrationSelectors {
 	// CQM
 	
 	public static final String country = "companyAddressCountryIso";
+	public static final String region = "address.region_del";
 	public static final String countryDiv = "select-selected";
 	public static final String countryIndex = "css,.padding_for_scroll>div";
 	public static final String titleDiv = "select-selected";
@@ -32,8 +33,10 @@ public class RegistrationSelectors {
 	public static final String city = "address.townCity";
 	public static final String Zipcode = "address.postcode";
 	public static final String position = "text.secureportal.register.position";
+	public static final String accountNumber = "accountNumber";
 	public static final String phone = "storeDetails.table.telephone";
 	public static final String extension = "text.secureportal.register.extension";
+	public static final String enteredBy = "css,#text.secureportal.register.enteredBy";
 	public static final String emailAddress = "register.email";
 	public static final String emailAddressConfirmation = "register.confirm.email";
 	public static final String comment = "text.secureportal.register.message";

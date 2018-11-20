@@ -101,6 +101,8 @@ public class RegistrationBase extends SelTestCase {
 		String message = "QA Automation Test";
 		//String password = "P11p"+RandomUtilities.getRandomPassword(8);
 		String email = RandomUtilities.getRandomEmail();
+		String accountNumber = RandomUtilities.getRandomNumber();
+		logs.debug("Account Number: "+ accountNumber);;
 		String url = PagesURLs.getHomePage() + PagesURLs.getRegistrationPage();
 		logs.debug("Registration page: "+ url);
 		getDriver().get(url);
@@ -109,12 +111,13 @@ public class RegistrationBase extends SelTestCase {
 		try {
 			if (proprties.contains(freshUser)) {
 				//register new user and validate the results
-				Registration.fillAndClickRegister(addressDetails.get(Registration.keys.country), addressDetails.get(Registration.keys.title),
-						addressDetails.get(Registration.keys.userName), addressDetails.get(Registration.keys.companyName),
+				logs.debug("Email will be used: "+ email);
+				Registration.fillAndClickRegister(
+					    addressDetails.get(Registration.keys.userName), addressDetails.get(Registration.keys.accountName),
 						addressDetails.get(Registration.keys.adddressLine),addressDetails.get(Registration.keys.adddressLine2),
-						addressDetails.get(Registration.keys.city),addressDetails.get(Registration.keys.postal),
-						addressDetails.get(Registration.keys.position),addressDetails.get(Registration.keys.phone),
-						addressDetails.get(Registration.keys.extension), email, email, message, 1);
+						addressDetails.get(Registration.keys.city),addressDetails.get(Registration.keys.region),
+						addressDetails.get(Registration.keys.postal),addressDetails.get(Registration.keys.accountNumber)
+						,addressDetails.get(Registration.keys.phone),email, addressDetails.get(Registration.keys.enteredBy), message, 1);
 				
 				String registrationSuccessMsg = Registration.getRegistrationSuccessMessage();
 				sassert().assertTrue(registrationSuccessMsg.toLowerCase().contains(thankUMsg), 
@@ -123,13 +126,13 @@ public class RegistrationBase extends SelTestCase {
 			
 			if (proprties.contains("New NON US user")) {
 				//register new user and validate the results
-				addressDetails = (LinkedHashMap<String, String>) addresses.get("A5");
-				Registration.fillAndClickRegister(addressDetails.get(Registration.keys.country), addressDetails.get(Registration.keys.title),
-						addressDetails.get(Registration.keys.userName), addressDetails.get(Registration.keys.companyName),
+				addressDetails = (LinkedHashMap<String, String>) addresses.get("A6");
+				Registration.fillAndClickRegister(
+					    addressDetails.get(Registration.keys.userName), addressDetails.get(Registration.keys.accountName),
 						addressDetails.get(Registration.keys.adddressLine),addressDetails.get(Registration.keys.adddressLine2),
-						addressDetails.get(Registration.keys.city),addressDetails.get(Registration.keys.postal),
-						addressDetails.get(Registration.keys.position),addressDetails.get(Registration.keys.phone),
-						addressDetails.get(Registration.keys.extension), email, email, message, 1);
+						addressDetails.get(Registration.keys.city),addressDetails.get(Registration.keys.region),
+						addressDetails.get(Registration.keys.postal),addressDetails.get(Registration.keys.accountNumber)
+						,addressDetails.get(Registration.keys.phone),email, addressDetails.get(Registration.keys.enteredBy), message, 1);
 				
 				String registrationSuccessMsg = Registration.getRegistrationSuccessMessage();
 				sassert().assertTrue(registrationSuccessMsg.toLowerCase().contains(thankUMsg), 
@@ -141,13 +144,13 @@ public class RegistrationBase extends SelTestCase {
 				LinkedHashMap<String, String> userdetails = (LinkedHashMap<String, String>) users.get("U-02");
 				email = userdetails.get(Registration.keys.email);
 				email=getSubMailAccount(email);
-				logs.debug("Registration mail: "+email);
-				Registration.fillAndClickRegister(addressDetails.get(Registration.keys.country), addressDetails.get(Registration.keys.title),
-						addressDetails.get(Registration.keys.userName), addressDetails.get(Registration.keys.companyName),
+				logs.debug("Registration mail: "+ email);
+				Registration.fillAndClickRegister(
+					    addressDetails.get(Registration.keys.userName), addressDetails.get(Registration.keys.accountName),
 						addressDetails.get(Registration.keys.adddressLine),addressDetails.get(Registration.keys.adddressLine2),
-						addressDetails.get(Registration.keys.city),addressDetails.get(Registration.keys.postal),
-						addressDetails.get(Registration.keys.position),addressDetails.get(Registration.keys.phone),
-						addressDetails.get(Registration.keys.extension), email, email, message, 1);
+						addressDetails.get(Registration.keys.city),addressDetails.get(Registration.keys.region),
+						addressDetails.get(Registration.keys.postal),addressDetails.get(Registration.keys.accountNumber)
+						,addressDetails.get(Registration.keys.phone),email, addressDetails.get(Registration.keys.enteredBy), message, 1);
 				String validationMsg = Registration.negativeAlerts();
 				sassert().assertTrue(validationMsg.contains(emailValidation), "Mail validation failed, Expected: " + emailValidation +" Actual: " + validationMsg);
 			}
@@ -204,12 +207,12 @@ public class RegistrationBase extends SelTestCase {
 			}
 			if (proprties.contains(invalidUserID)) {
 				email = "invalid";
-				Registration.fillAndClickRegister(addressDetails.get(Registration.keys.country), addressDetails.get(Registration.keys.title),
-						addressDetails.get(Registration.keys.userName), addressDetails.get(Registration.keys.companyName),
+				Registration.fillAndClickRegister(
+					    addressDetails.get(Registration.keys.userName), addressDetails.get(Registration.keys.accountName),
 						addressDetails.get(Registration.keys.adddressLine),addressDetails.get(Registration.keys.adddressLine2),
-						addressDetails.get(Registration.keys.city),addressDetails.get(Registration.keys.postal),
-						addressDetails.get(Registration.keys.position),addressDetails.get(Registration.keys.phone),
-						addressDetails.get(Registration.keys.extension), email, email, message, 1);
+						addressDetails.get(Registration.keys.city),addressDetails.get(Registration.keys.region),
+						addressDetails.get(Registration.keys.postal),addressDetails.get(Registration.keys.accountNumber)
+						,addressDetails.get(Registration.keys.phone),email, addressDetails.get(Registration.keys.enteredBy), message, 1);
 				
 				String validationMsg = Registration.getEmailAddressError();
 				sassert().assertTrue(validationMsg.contains(emailValidation),
