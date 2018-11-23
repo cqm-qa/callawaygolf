@@ -61,6 +61,7 @@ public class AccountsSetup extends SelTestCase {
 		
 		String Pemail = "";
 		String message = "QA Automation Test";
+		int userType0 = Integer.parseInt(userType);
 		LinkedHashMap<String, String> userdetails = null; 
 		if (!email.equals(""))
 		{
@@ -82,7 +83,7 @@ public class AccountsSetup extends SelTestCase {
 					addressDetails.get(Registration.keys.adddressLine),addressDetails.get(Registration.keys.adddressLine2),
 					addressDetails.get(Registration.keys.city),addressDetails.get(Registration.keys.region),
 					addressDetails.get(Registration.keys.postal),addressDetails.get(Registration.keys.accountNumber)
-					,addressDetails.get(Registration.keys.phone),email, addressDetails.get(Registration.keys.enteredBy), message, 1);
+					,addressDetails.get(Registration.keys.phone),email, addressDetails.get(Registration.keys.enteredBy), message, userType0);
 				
 				String registrationSuccessMsg = Registration.getRegistrationSuccessMessage();
 				sassert().assertTrue(registrationSuccessMsg.toLowerCase().contains(thankUMsg), 

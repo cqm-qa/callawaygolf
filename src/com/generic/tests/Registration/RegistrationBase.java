@@ -164,19 +164,12 @@ public class RegistrationBase extends SelTestCase {
 					Thread.sleep(3000);
 				}
 				
-				String validationMsg = Registration.getcountryError();
-				sassert().assertTrue(validationMsg.contains(countryValidation),
-						"Country validation failed Expected: " + countryValidation + " Actual: " + validationMsg);
-
-				validationMsg = Registration.getTitleError();
-				sassert().assertTrue(validationMsg.contains(titleValidation),
-						"Title validation failed Expected: " + titleValidation + " Actual: " + validationMsg);
 			
-				validationMsg = Registration.getuserNameError();
+				String validationMsg = Registration.getuserNameError();
 				sassert().assertTrue(validationMsg.contains(nameValidation),
 						"Name validation failed Expected: " + nameValidation + " Actual: " + validationMsg);
 
-				validationMsg = Registration.getcompanyNameError();
+				validationMsg = Registration.getAccountNameError();
 				sassert().assertTrue(validationMsg.contains(companyNameValidation),
 						"Company name validation failed Expected: " + companyNameValidation + " Actual: " + validationMsg);
 				
@@ -188,13 +181,13 @@ public class RegistrationBase extends SelTestCase {
 				sassert().assertTrue(validationMsg.contains(cityValidation),
 						"City validation failed Expected: " + cityValidation + " Actual: " + validationMsg);
 				
+				 validationMsg = Registration.getRegionError();
+				sassert().assertTrue(validationMsg.contains(countryValidation),
+						"Region validation failed Expected: " + countryValidation + " Actual: " + validationMsg);
+
 				validationMsg = Registration.getPostalCodeError();
 				sassert().assertTrue(validationMsg.contains(postalCodeValidation),
 						"Postal code validation failed Expected: " + postalCodeValidation + " Actual: " + validationMsg);
-				
-				validationMsg = Registration.getPositionError();
-				sassert().assertTrue(validationMsg.contains(positionValidation),
-						"Position validation failed Expected: " + positionValidation + " Actual: " + validationMsg);
 				
 				validationMsg = Registration.getPhoneError();
 				sassert().assertTrue(validationMsg.contains(phoneValidation),

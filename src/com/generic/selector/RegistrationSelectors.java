@@ -23,6 +23,8 @@ public class RegistrationSelectors {
 	public static final String region = "address.region_del";
 	public static final String countryDiv = "select-selected";
 	public static final String countryIndex = "css,.padding_for_scroll>div";
+	public static final String regionDiv = "select-selected";
+	public static final String regionIndex = "css,.padding_for_scroll>div";
 	public static final String titleDiv = "select-selected";
 	public static final String titleIndex = "css,.padding_for_scroll>div";
 	public static final String title = "titleCode";
@@ -36,7 +38,7 @@ public class RegistrationSelectors {
 	public static final String accountNumber = "accountNumber";
 	public static final String phone = "storeDetails.table.telephone";
 	public static final String extension = "text.secureportal.register.extension";
-	public static final String enteredBy = "css,#text.secureportal.register.enteredBy";
+	public static final String enteredBy = "text.secureportal.register.enteredBy";
 	public static final String emailAddress = "register.email";
 	public static final String emailAddressConfirmation = "register.confirm.email";
 	public static final String comment = "text.secureportal.register.message";
@@ -48,9 +50,11 @@ public class RegistrationSelectors {
 	public static final String registerSection = "register-section";
 	
 	public static final String countryError = "companyAddressCountryIso.errors";     //Please fill all mandatory fields.
+	public static final String regionError = "companyAddressRegion.errors";
+	
 	public static final String titleError = "titleCode.errors";       //Please fill all mandatory fields.
 	public static final String nameError = "name.errors";
-	public static final String companyNameError = "companyName.errors";
+	public static final String accountNameError = "companyName.errors";
 	public static final String addressLine1Error = "companyAddressStreet.errors";
 	public static final String cityError = "companyAddressCity.errors";
 	public static final String postalCodeError = "companyAddressPostalCode.errors";

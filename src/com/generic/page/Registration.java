@@ -66,6 +66,21 @@ public class Registration extends SelTestCase {
 			}
 
 	}
+	public static void typeRegion(int index) throws Exception {
+		try {
+				getCurrentFunctionName(true);
+				List<String> subStrArr = new ArrayList<String>();
+				subStrArr.add(RegistrationSelectors.regionDiv);
+				String subStrArrOption = RegistrationSelectors.regionIndex;
+				SelectorUtil.selectByIndex(subStrArr,0 ,subStrArrOption, index);
+				getCurrentFunctionName(false);
+			} catch (NoSuchElementException e) {
+				logs.debug(MessageFormat.format(ExceptionMsg.PageFunctionFailed, new Object() {
+				}.getClass().getEnclosingMethod().getName()));
+				throw e;
+			}
+	}
+	
 	public static void typeCountry2(int index) throws Exception {
 		try {
 				getCurrentFunctionName(true);
@@ -310,7 +325,7 @@ public class Registration extends SelTestCase {
 				typeCity(city);
 			
 			if (!"".equals(region))
-				typeCountry(region);
+				typeRegion(31);
 			    Thread.sleep(500);
 			
 			if (!"".equals(postal))
@@ -613,13 +628,13 @@ public class Registration extends SelTestCase {
 	}
 
 	
-	public static String getcountryError() throws Exception {
+	public static String getRegionError() throws Exception {
 		try {
 			getCurrentFunctionName(true);
 			List<String> subStrArr = new ArrayList<String>();
 			List<String> valuesArr = new ArrayList<String>();
-			logs.debug(MessageFormat.format(LoggingMsg.GETTING_TEXT, "Last Name Error"));
-			subStrArr.add(RegistrationSelectors.countryError);
+			logs.debug(MessageFormat.format(LoggingMsg.GETTING_TEXT, "Region Error"));
+			subStrArr.add(RegistrationSelectors.regionError);
 			valuesArr.add("");
 			SelectorUtil.initializeSelectorsAndDoActions(subStrArr, valuesArr);
 			getCurrentFunctionName(false);
@@ -637,7 +652,7 @@ public class Registration extends SelTestCase {
 			getCurrentFunctionName(true);
 			List<String> subStrArr = new ArrayList<String>();
 			List<String> valuesArr = new ArrayList<String>();
-			logs.debug(MessageFormat.format(LoggingMsg.GETTING_TEXT, "Email Address Error"));
+			logs.debug(MessageFormat.format(LoggingMsg.GETTING_TEXT, "Error"));
 			subStrArr.add(RegistrationSelectors.negativeAlerts);
 			valuesArr.add("");
 			SelectorUtil.initializeSelectorsAndDoActions(subStrArr, valuesArr);
@@ -816,12 +831,11 @@ public class Registration extends SelTestCase {
 	
 	public static void verifyRegistrationFormErrors() throws Exception {
 		getCurrentFunctionName(true);
-		getcountryError();
-		getTitleError();
+		getAccountNameError();
 		getAddressLine1Error();
 		getcityError();
 		getPostalCodeError();
-		getPositionError();
+		getRegionError();
 		getPhoneError();
 		getEmailAddressError();
 		getCurrentFunctionName(false);
@@ -859,13 +873,13 @@ public class Registration extends SelTestCase {
 		
 	}
 
-	public static String getcompanyNameError() throws Exception {
+	public static String getAccountNameError() throws Exception {
 		try {
 			getCurrentFunctionName(true);
 			List<String> subStrArr = new ArrayList<String>();
 			List<String> valuesArr = new ArrayList<String>();
-			logs.debug(MessageFormat.format(LoggingMsg.GETTING_TEXT, "company Name Error"));
-			subStrArr.add(RegistrationSelectors.companyNameError);
+			logs.debug(MessageFormat.format(LoggingMsg.GETTING_TEXT, "account Name Error"));
+			subStrArr.add(RegistrationSelectors.accountNameError);
 			valuesArr.add("");
 			SelectorUtil.initializeSelectorsAndDoActions(subStrArr, valuesArr);
 			getCurrentFunctionName(false);
